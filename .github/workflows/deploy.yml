@@ -21,12 +21,12 @@ jobs:
       name: github-pages
       
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
           token: ${{ secrets.QUARTZ_CONTENT_PAT }}
           fetch-depth: 0 # Fetch all history for git info
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.14
       - name: Install Dependencies
