@@ -1,0 +1,4 @@
+[submodule "quartz_content"]
+	path = content
+	url = ../quartz_content
+	branch = main
