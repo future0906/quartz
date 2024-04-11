@@ -27,7 +27,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({
+      "filterFn": (node) => node.name !== "tags" && node.name !== "zettelkasten", // filters out 'tags' folder
+    })),
   ],
   right: [
     Component.Graph(),
