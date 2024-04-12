@@ -12,7 +12,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "google",
+      tagId: "G-R5JSW0TPGG",
     },
     locale: "en-US",
     baseUrl: "brain.shaneyao.com",
