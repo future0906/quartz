@@ -1,3 +1,4 @@
+import { filter } from "d3"
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
@@ -27,7 +28,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
   ],
   right: [
     Component.Graph(),
@@ -44,7 +45,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
   ],
   right: [],
 }
