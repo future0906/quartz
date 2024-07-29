@@ -1,6 +1,8 @@
 import { filter } from "d3"
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { commonFilter } from "./quartz_custom_helper"
+import { SimpleSlug } from "./quartz/util/path"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -27,9 +29,25 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
+    // Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
+    // Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
+    Component.RecentNotes({
+      title: "Recent Notes",
+      limit: 4,
+      showTags: false,
+      filter: (f) =>
+        f.slug!.startsWith("notes/") && commonFilter(f),
+      linkToMore: "notes/" as SimpleSlug,
+    }),
+    Component.RecentNotes({
+      title: "Recent Posts",
+      limit: 2,
+      showTags: false,
+      filter: (f) =>
+        f.slug!.startsWith("posts/") && commonFilter(f),
+      linkToMore: "posts/" as SimpleSlug,
+    }),
   ],
   right: [
     Component.Graph(),
@@ -46,7 +64,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
+    // Component.DesktopOnly(Component.Explorer({folderClickBehavior:"link", filterFn: (node) => node.name !== "tags" && node.name !== "notes"})),
   ],
   right: [],
 }
