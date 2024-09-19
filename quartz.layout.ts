@@ -13,6 +13,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       GitHub: "https://github.com/future0906",
       "Home": "https://shaneyao.com",
+      "Notes": "https://notes.shaneyao.com",
       "中文主页": "https://yaozhixiang.com",
     },
   }),
