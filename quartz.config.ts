@@ -16,8 +16,8 @@ const config: QuartzConfig = {
       tagId: "G-R5JSW0TPGG",
     },
     locale: "en-US",
-    baseUrl: "shaneyao.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "notes.shaneyao.com",
+    ignorePatterns: ["private", "templates", ".obsidian", "posts"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",

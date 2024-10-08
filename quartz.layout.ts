@@ -40,14 +40,6 @@ export const defaultContentPageLayout: PageLayout = {
         f.slug!.startsWith("notes/") && commonFilter(f),
       linkToMore: "notes/" as SimpleSlug,
     }),
-    Component.RecentNotes({
-      title: "Recent Posts",
-      limit: 2,
-      showTags: false,
-      filter: (f) =>
-        f.slug!.startsWith("posts/") && commonFilter(f),
-      linkToMore: "posts/" as SimpleSlug,
-    }),
   ],
   right: [
     Component.Graph(),
